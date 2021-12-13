@@ -4,13 +4,15 @@ import HeaderComponent from './components/Struture/HeaderComponent';
 import SlideShow from './components/Struture/SlideShow';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
-import {useSelector} from 'react-redux';
-import LoginForm   from './components/Struture/LoginForm';
-
+import {useDispatch, useSelector} from 'react-redux';
+import LoginForm from './components/Struture/LoginForm';
+import Functions from './functions';
  
 function App() {
-
+  const dispatch = useDispatch;
+  Functions.verifyLogin(dispatch);
   const isLogged = useSelector(state => state.loggedIn);
+
 
   return (
     <Container fluid className="p-0">
